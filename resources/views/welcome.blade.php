@@ -46,6 +46,7 @@
             <table id="product-table" width="100%">
                 <thead>
                 <tr>
+                    <th>Product ID</th>
                     <th>Product Name</th>
                     <th>Price</th>
                     <th>Tax</th>
@@ -57,6 +58,9 @@
                     <tr>
                         <td>
                             {{$product->product_id}}
+                        </td>
+                        <td>
+                            {{$product->product_name}}
                         </td>
                         <td>
                             {{$product->price}}
