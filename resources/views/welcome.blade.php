@@ -21,6 +21,10 @@
             body {
                 font-family: 'Nunito', sans-serif;
             }
+            #product-table thead th{
+                background-color: #EFEFEF;
+                text-align: center;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -39,13 +43,16 @@
 
         <div class="container">
             <h3>Mallow Mart Product Manager</h3>
-            <table width="100%">
+            <table id="product-table" width="100%">
+                <thead>
                 <tr>
-                    <td>Product Name</td>
-                    <td>Price</td>
-                    <td>Tax</td>
-                    <td>Available Stock</td>
+                    <th>Product Name</th>
+                    <th>Price</th>
+                    <th>Tax</th>
+                    <th>Available Stock</th>
                 </tr>
+                </thead>
+                <tbody>
                 @foreach($products as $product)
                     <tr>
                         <td>
@@ -62,6 +69,7 @@
                         </td>
                     </tr>
                 @endforeach
+                </tbody>
             </table>
         </div>
     </body>
