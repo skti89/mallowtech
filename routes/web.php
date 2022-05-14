@@ -19,6 +19,7 @@ Route::get('/index', [ProductController::class,'ListProducts']);
 Route::get('/newProd', function () {
     return view('newprod');
 });
+Route::post('/saveProd', [ProductController::class,'create']);
 Route::get('/bills', function () {
     return view('viewbills');
 });
