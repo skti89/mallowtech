@@ -39,7 +39,30 @@
 
         <div class="container">
             <h3>Mallow Mart Product Manager</h3>
-            <p>Views follows here</p>
+            <table width="100%">
+                <tr>
+                    <td>Product Name</td>
+                    <td>Price</td>
+                    <td>Tax</td>
+                    <td>Available Stock</td>
+                </tr>
+                @foreach($products as $product)
+                    <tr>
+                        <td>
+                            {{$product->product_id}}
+                        </td>
+                        <td>
+                            {{$product->price}}
+                        </td>
+                        <td>
+                            {{$product->tax}}
+                        </td>
+                        <td>
+                            {{$product->available_stock}}
+                        </td>
+                    </tr>
+                @endforeach
+            </table>
         </div>
     </body>
 </html>
