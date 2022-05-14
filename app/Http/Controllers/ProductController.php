@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ProductController extends Controller
 {
@@ -29,9 +30,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
         //
+        $prod=new Product();
+        $prod->id=Str::uuid();
+        $prod->product_id=$request->product_id;
+        $prod->product_name=$request->product_name;
+        $prod->price=$request->price;
+        $prod->tax=$request->tax;
+        $prod->available_stock=$request->available_stock;
+        $prod->save();
+        return redirect('/index');
     }
 
     /**
