@@ -25,6 +25,10 @@
                 background-color: #EFEFEF;
                 text-align: center;
             }
+            .float-right
+            {
+                float:right;
+            }
         </style>
     </head>
     <body class="antialiased">
@@ -42,6 +46,9 @@
         </nav>
 
         <div class="container">
+            <a class="btn btn-primary float-right"
+            href="/newProd">
+                Add New Product</a>
             <h3>Mallow Mart Product Manager</h3>
             <table id="product-table" width="100%">
                 <thead>
@@ -62,13 +69,13 @@
                         <td>
                             {{$product->product_name}}
                         </td>
-                        <td>
+                        <td align="center">
                             {{$product->price}}
                         </td>
-                        <td>
+                        <td align="center">
                             {{$product->tax}}
                         </td>
-                        <td>
+                        <td align="center">
                             {{$product->available_stock}}
                         </td>
                     </tr>
