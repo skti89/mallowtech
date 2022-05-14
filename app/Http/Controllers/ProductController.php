@@ -16,6 +16,13 @@ class ProductController extends Controller
     {
         //
     }
+    public function ListProducts()
+    {
+        $products=Product::where([])->get();
+        return view('welcome', [
+            'products' => $products
+        ]);
+    }
 
     /**
      * Show the form for creating a new resource.
