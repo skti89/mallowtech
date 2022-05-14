@@ -39,6 +39,8 @@
 
         <div class="container">
             <h3>Mallow Mart Product Manage Page</h3>
+            <form action="/saveProd" method="post">
+            @csrf
             <table width="100%">
                 <tr>
                     <td>Product ID</td>
@@ -80,7 +82,15 @@
                         name="available_stock">
                     </td>
                 </tr>
+                <tr>
+                    <td colspan="2" class="text-center">
+                        <button class="btn btn-primary">
+                            Save
+                        </button>
+                    </td>
+                </tr>
             </table>
+            </form>
         </div>
     </body>
 </html>
