@@ -17,6 +17,8 @@ class CreateInvoicesTable extends Migration
             $table->string('id')->unique();
             $table->string('customer_email');
             $table->float('bill_total', 8, 2);
+            $table->float('bill_total_rounded', 8, 2);
+            $table->float('balance_returned', 8, 2);
             $table->float('amount_collected', 8, 2);
             $table->integer('collected_500')->nullable();
             $table->integer('collected_200')->nullable();
