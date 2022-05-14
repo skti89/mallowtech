@@ -16,6 +16,9 @@ use App\Http\Controllers\ProductController;
 
 Route::get('/', [ProductController::class,'ListProducts']);
 Route::get('/index', [ProductController::class,'ListProducts']);
+Route::get('/newProd', function () {
+    return view('newprod');
+});
 Route::get('/bills', function () {
     return view('viewbills');
 });
