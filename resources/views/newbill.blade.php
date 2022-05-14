@@ -38,8 +38,121 @@
         </nav>
 
         <div class="container">
+            <form action="/saveBill" method="post">
+                @csrf
+            <button type="submit" class="btn btn-primary"
+            style="float: right;">
+                Save Bill
+            </button>
             <h3>Mallow Mart New Bill</h3>
             <p>Views follows here</p>
+            <table width="100%">
+                <tr valign="top">
+                    <td width="60%">
+                        <table>
+                            <tr>
+                                Customer Email:
+                                <input type="email" name="customer_email"
+                                class="form-control">
+                            </tr>
+                            <tr>
+                                <button type="button"
+                                class="btn btn-primary" style="float:right;"
+                                onclick="addNewBillRow();">
+                                Add New</button>
+                                <h4>Bill Section:</h4>
+                                <div id="bill-section">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <input type="text"
+                                            name="product_id[]"
+                                            placeholder="Enter Product ID"
+                                            class="form-control">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="text"
+                                            name="quantity[]"
+                                            placeholder="Enter Quantity"
+                                            class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                            </tr>
+                        </table>
+                    </td>
+                    <td width="40%">
+                        <h4>Denomination<h4>
+                        <table width="100%">
+                            <tr>
+                                <td align="right">500</td>
+                                <td>
+                                    <input type="text" class="form-control"
+                                    placeholder="Denomination">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">200</td>
+                                <td>
+                                    <input type="text" class="form-control"
+                                    placeholder="Denomination">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">100</td>
+                                <td>
+                                    <input type="text" class="form-control"
+                                    placeholder="Denomination">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">50</td>
+                                <td>
+                                    <input type="text" class="form-control"
+                                    placeholder="Denomination">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">20</td>
+                                <td>
+                                    <input type="text" class="form-control"
+                                    placeholder="Denomination">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">10</td>
+                                <td>
+                                    <input type="text" class="form-control"
+                                    placeholder="Denomination">
+                                </td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
+            </table>
+            </form>
         </div>
+        <script>
+            function addNewBillRow(){
+                var div= $("<div/>", { class: "row" });
+                var col1= $("<div/>", { class: "col-md-6" });
+                var col2= $("<div/>", { class: "col-md-6" });
+                var input1= $("<input/>", {
+                    class: "form-control",
+                    name: "product_id[]",
+                    placeholder: "Enter Product ID",
+                });
+                var input2= $("<input/>", {
+                    class: "form-control",
+                    name: "quantity[]",
+                    placeholder: "Enter Quantity",
+                });
+                col1.append(input1);
+                col2.append(input2);
+                div.append(col1);
+                div.append(col2);
+
+                $("#bill-section").append(div);
+            }
+        </script>
     </body>
 </html>
