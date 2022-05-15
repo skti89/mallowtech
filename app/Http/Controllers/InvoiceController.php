@@ -95,9 +95,15 @@ class InvoiceController extends Controller
      * @param  \App\Models\Invoice  $invoice
      * @return \Illuminate\Http\Response
      */
-    public function show(Invoice $invoice)
+    public function show($invoiceID)
     {
         //
+        $invoice=Invoice::where(['id'=>$invoiceID])->first();
+        $invoiceDetails=InvoiceDetail::where(['invoice_id'=>$invoiceID])->get();
+        return view('viewbill', [
+            'invoice' => $invoice,
+            'invoiceDetails' => $invoiceDetails
+        ]);
     }
 
     /**

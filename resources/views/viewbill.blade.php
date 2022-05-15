@@ -30,42 +30,77 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Mallow Mart</a>
             </div>
-            <ul class="nav navbar-nav">
-                <li><a href="/index">Product Manager</a></li>
-                <li class="active"><a href="/bills">View Bills</a></li>
-                <li><a href="/newbill">New Bill</a></li>
-            </ul>
         </div>
         </nav>
 
         <div class="container">
             <h3>Mallow Mart Bill List</h3>
-            <table id="product-table" width="100%">
-                <thead>
-                <tr>
-                    <th>Customer Email</th>
-                    <th>Bill Amount</th>
-                    <th>Action</th>
-                </tr>
-                </thead>
-                <tbody>
-                @foreach($invoices as $product)
-                    <tr>
-                        <td>
-                            {{$product->customer_email}}
-                        </td>
-                        <td>
-                            {{$product->bill_total}}
-                        </td>
-                        <td align="center">
-                            <a target="_blank" href="/printBill/<?php echo urlencode($product->id); ?>">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            </a>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+            <div class="row">
+                <div class="col-md-4">Customer Email</div>
+                <div class="col-md-8">{{ $invoice->customer_email }}</div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">Bill Section</div>
+                <div class="col-md-8">
+                    <table id="product-table" width="100%">
+                        <thead>
+                        <tr>
+                            <th>Product ID</th>
+                            <th>Unit Price</th>
+                            <th>Quantity</th>
+                            <th>Purchase Price</th>
+                            <th>Tax Perc</th>
+                            <th>Tax Amount</th>
+                            <th>Gross Price</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $netTotal=0;
+                        $taxPaid=0;
+                        ?>
+                        @foreach($invoiceDetails as $invDetails)
+                            <tr>
+                                <td>
+                                    {{$invDetails->product_id}}
+                                </td>
+                                <td>
+                                    {{$invDetails->per_pc_price}}
+                                </td>
+                                <td>
+                                    {{$invDetails->quantity}}
+                                </td>
+                                <td>
+                                    {{$invDetails->net_amount}}
+                                </td>
+                                <td>
+                                    {{$invDetails->tax_perc}}
+                                </td>
+                                <td>
+                                    {{$invDetails->tax_amount}}
+                                </td>
+                                <td>
+                                    {{$invDetails->net_amount_inc_tax}}
+                                </td>
+                            </tr>
+                            <?php
+                            $netTotal+=$invDetails->net_amount;
+                            $taxPaid+=$invDetails->tax_amount;
+                            ?>
+                        @endforeach
+                        </tbody>
+                    </table>
+                    <div class="text-right">
+                        <b>Total Price without Tax: </b>{{$netTotal}}
+                    </div>
+                    <div class="text-right">
+                        <b>Total Tax Payable: </b>{{$taxPaid}}
+                    </div>
+                    <div class="text-right">
+                        <b>Total Net Price of Purchased Item: </b>{{$invoice->bill_total}}
+                    </div>
+                </div>
+            </div>
         </div>
     </body>
 </html>
