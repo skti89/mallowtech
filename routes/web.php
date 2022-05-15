@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\InvoiceController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,9 +21,7 @@ Route::get('/newProd', function () {
     return view('newprod');
 });
 Route::post('/saveProd', [ProductController::class,'create']);
-Route::get('/bills', function () {
-    return view('viewbills');
-});
+Route::get('/bills', [InvoiceController::class, 'index']);
 Route::get('/newbill', function () {
     return view('newbill');
 });
