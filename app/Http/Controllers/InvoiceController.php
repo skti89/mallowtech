@@ -15,6 +15,10 @@ class InvoiceController extends Controller
     public function index()
     {
         //
+        $invoices=Invoice::where([])->get();
+        return view('viewbills', [
+            'invoices' => $invoices
+        ]);
     }
 
     /**
