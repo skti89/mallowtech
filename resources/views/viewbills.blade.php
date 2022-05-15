@@ -11,6 +11,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -39,7 +40,30 @@
 
         <div class="container">
             <h3>Mallow Mart Bill List</h3>
-            <p>Views follows here</p>
+            <table id="product-table" width="100%">
+                <thead>
+                <tr>
+                    <th>Customer Email</th>
+                    <th>Bill Amount</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                @foreach($invoices as $product)
+                    <tr>
+                        <td>
+                            {{$product->customer_email}}
+                        </td>
+                        <td>
+                            {{$product->bill_total}}
+                        </td>
+                        <td align="center">
+                            <i class="fa fa-eye" aria-hidden="true"></i>
+                        </td>
+                    </tr>
+                @endforeach
+                </tbody>
+            </table>
         </div>
     </body>
 </html>
