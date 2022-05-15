@@ -22,6 +22,7 @@ Route::get('/newProd', function () {
 });
 Route::post('/saveProd', [ProductController::class,'create']);
 Route::get('/bills', [InvoiceController::class, 'index']);
+Route::post('/saveBill', [InvoiceController::class, 'create']);
 Route::get('/newbill', function () {
     return view('newbill');
 });

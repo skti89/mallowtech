@@ -40,12 +40,15 @@
         <div class="container">
             <form action="/saveBill" method="post">
                 @csrf
+            <input type="hidden" name="bill_total"
+            id="bill_total" value=""/>
+            <input type="hidden" name="amount_collected"
+            id="amount_collected" value=""/>
             <button type="submit" class="btn btn-primary"
             style="float: right;">
                 Save Bill
             </button>
             <h3>Mallow Mart New Bill</h3>
-            <p>Views follows here</p>
             <table width="100%">
                 <tr valign="top">
                     <td width="60%">
@@ -87,6 +90,7 @@
                                 <td align="right">500</td>
                                 <td>
                                     <input type="text" class="form-control"
+                                    name="collected_500"
                                     placeholder="Denomination">
                                 </td>
                             </tr>
@@ -94,6 +98,7 @@
                                 <td align="right">200</td>
                                 <td>
                                     <input type="text" class="form-control"
+                                    name="collected_200"
                                     placeholder="Denomination">
                                 </td>
                             </tr>
@@ -101,6 +106,7 @@
                                 <td align="right">100</td>
                                 <td>
                                     <input type="text" class="form-control"
+                                    name="collected_100"
                                     placeholder="Denomination">
                                 </td>
                             </tr>
@@ -108,6 +114,7 @@
                                 <td align="right">50</td>
                                 <td>
                                     <input type="text" class="form-control"
+                                    name="collected_50"
                                     placeholder="Denomination">
                                 </td>
                             </tr>
@@ -115,6 +122,7 @@
                                 <td align="right">20</td>
                                 <td>
                                     <input type="text" class="form-control"
+                                    name="collected_20"
                                     placeholder="Denomination">
                                 </td>
                             </tr>
@@ -122,6 +130,7 @@
                                 <td align="right">10</td>
                                 <td>
                                     <input type="text" class="form-control"
+                                    name="collected_10"
                                     placeholder="Denomination">
                                 </td>
                             </tr>
